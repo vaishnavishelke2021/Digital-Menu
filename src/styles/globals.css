@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #FF6B6B;
+  --primary-dark: #FF5252;
+  --primary-light: #FFE3E3;
+  --primary-50: #FFF5F5;
+  --primary-100: #FFE3E3;
+  
+  --background: #F9FAFB;
+  --foreground: #111827;
+  
+  --muted: #6B7280;
+  --muted-foreground: #9CA3AF;
+  
+  --card: #FFFFFF;
+  --card-foreground: #111827;
+  
+  --border: #E5E7EB;
+  --input: #374151;
+  
+  --accent: #4F46E5;
+  --accent-foreground: #FFFFFF;
+  
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+}
+
+[data-theme='dark'] {
+  --primary: #FF6B6B;
+  --primary-dark: #FF5252;
+  --primary-light: #4A1D1D;
+  --primary-50: #291111;
+  --primary-100: #4A1D1D;
+  
+  --background: #1F2937;
+  --foreground: #F9FAFB;
+  
+  --muted: #9CA3AF;
+  --muted-foreground: #D1D5DB;
+  
+  --card: #111827;
+  --card-foreground: #F9FAFB;
+  
+  --border: #374151;
+  --input: #D1D5DB;
+  
+  --accent: #6366F1;
+  --accent-foreground: #FFFFFF;
+  
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-[var(--primary)] hover:bg-[var(--primary-dark)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--primary)];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center px-6 py-3 border border-[var(--primary)] text-base font-medium rounded-md text-[var(--primary)] bg-white hover:bg-[var(--primary-50)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--primary)];
+  }
+
+  .btn-white {
+    @apply inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-[var(--primary)] bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white;
+  }
+
+  .input {
+    @apply block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-[var(--primary)] focus:outline-none focus:ring-1 focus:ring-[var(--primary)];
+    background-color: var(--card);
+    color: var(--card-foreground);
+  }
+
+  .label {
+    @apply block text-sm font-medium mb-1;
+    color: var(--card-foreground);
+  }
+
+  .tab {
+    @apply px-1 py-4 text-sm font-medium border-b-2;
+  }
+
+  .tab.active {
+    @apply border-[var(--primary)] text-[var(--primary)];
+  }
+
+  .tab:not(.active) {
+    @apply border-transparent text-[var(--muted-foreground)] hover:text-[var(--card-foreground)] hover:border-[var(--muted)];
+  }
+
+  .card {
+    @apply rounded-lg border p-4 shadow-sm;
+    background-color: var(--card);
+    border-color: var(--border);
+  }
+
+  .menu-card {
+    @apply bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-all duration-200 transform hover:-translate-y-1;
+  }
+
+  .category-pill {
+    @apply px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors duration-200;
+  }
+
+  .category-pill.active {
+    @apply bg-[var(--primary)] text-white;
+  }
+
+  .category-pill:not(.active) {
+    @apply bg-gray-100 text-gray-700 hover:bg-gray-200;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-r from-[var(--primary)] to-[var(--primary-dark)];
+  }
+}
