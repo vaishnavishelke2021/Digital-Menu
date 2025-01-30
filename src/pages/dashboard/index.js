@@ -155,7 +155,8 @@ export default function Dashboard() {
     if (!user) return;
     
     try {
-      const menuUrl = `${window.location.origin}/menu/${user.uid}`;
+      const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || window.location.origin;
+      const menuUrl = `${baseUrl}/menu/${user.uid}`;
       const qrCode = await QRCode.toDataURL(menuUrl);
       await setDoc(doc(db, 'restaurants', user.uid), { 
         qrCodeUrl: qrCode,
